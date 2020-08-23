@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import Container from '@material-ui/core/Container'
 
 import {
   BrowserRouter as Router,
@@ -115,7 +116,8 @@ const App = () => {
     : null
 
   return (
-    <div>
+    <Container>
+
       <div>
         <Link style={padding} to="/">home</Link>
         <Link style={padding} to="/notes">notes</Link>
@@ -147,7 +149,8 @@ const App = () => {
         <br />
         <em>Note app, Department of Computer Science 2020</em>
       </div>
-    </div>
+
+    </Container>
   )
 }
 
