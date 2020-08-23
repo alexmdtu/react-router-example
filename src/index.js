@@ -23,6 +23,8 @@ import {
   Button
 } from '@material-ui/core'
 
+import { Alert } from '@material-ui/lab'
+
 const Home = () => (
   <div>
     <h2>TKTL notes app</h2>
@@ -126,9 +128,14 @@ const App = () => {
   ])
 
   const [user, setUser] = useState(null)
+  const [message, setMessage] = useState(null)
 
   const login = (user) => {
     setUser(user)
+    setMessage(`welcome ${user}`)
+    setTimeout(() => {
+      setMessage(null)
+    }, 10000)
   }
 
   const padding = {
@@ -142,6 +149,13 @@ const App = () => {
 
   return (
     <Container>
+      <div>
+        {(message &&
+          <Alert severity="success">
+            {message}
+          </Alert>
+        )}
+      </div>
 
       <div>
         <Link style={padding} to="/">home</Link>
