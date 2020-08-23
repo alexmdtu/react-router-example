@@ -20,7 +20,10 @@ import {
   TableRow,
   Paper,
   TextField,
-  Button
+  Button,
+  AppBar,
+  Toolbar,
+  IconButton
 } from '@material-ui/core'
 
 import { Alert } from '@material-ui/lab'
@@ -157,15 +160,27 @@ const App = () => {
         )}
       </div>
 
-      <div>
-        <Link style={padding} to="/">home</Link>
-        <Link style={padding} to="/notes">notes</Link>
-        <Link style={padding} to="/users">users</Link>
-        {user
-          ? <em>{user} logged in</em>
-          : <Link style={padding} to="/login">login</Link>
-        }
-      </div>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+          </IconButton>
+          <Button color="inherit">
+            <Link to="/">home</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/notes">notes</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/users">users</Link>
+          </Button>
+          <Button color="inherit">
+            {user
+              ? <em>{user} logged in</em>
+              : <Link style={padding} to="/login">login</Link>
+            }
+          </Button>
+        </Toolbar>
+      </AppBar>
 
       <Switch>
         <Route path="/notes/:id">
